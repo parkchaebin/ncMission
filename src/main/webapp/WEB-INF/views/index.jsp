@@ -1,0 +1,61 @@
+<%-- 
+    Document   : index
+    Created on : 2023. 12. 22., 오후 1:26:42
+    Author     : asdf0
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calc Page</title>
+</head>
+<body>
+    <form action="calculate" method="post" onsubmit="return validateForm()">
+        <table width="50%" style="border:0;">
+      <tbody>
+        <tr>
+          <td width="20%">&nbsp;</td>
+          <td width="30%">&nbsp;</td>
+          <td width="20%">&nbsp;</td>
+          <td width="30%">&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td style="text-align:right;">A</td>
+          <td><input type="text" name="a" id="a"></td>
+          <td>&nbsp;</td>
+    
+          <td style="text-align:right;">B</td>
+          <td><input type="text" name="b" id="b"></td>
+        </tr>
+          <tr><td>&nbsp;</td>
+          <td></td>
+          <td><input type="submit" name="submit" id="submit" value="Go"></td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+      </tbody>
+    </table>
+    </form>
+</body>
+<script>
+    function validateForm() {
+        var inputValueA = document.getElementById("a").value;
+        var inputValueB = document.getElementById("b").value;
+        
+        // 입력값 조건
+        if (isNaN(inputValueA) || isNaN(inputValueB) || parseInt(inputValueA) <= 0 || parseInt(inputValueB) <= 0 || parseInt(inputValueA) > 100 || parseInt(inputValueB) > 100) {
+          alert("입력값은 양의 정수여야 하며 최대값은 100입니다.");
+          return false;
+        }
+        
+        return true;
+      }
+</script>
+</html>
